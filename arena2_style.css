@@ -1,0 +1,359 @@
+.apresentacao{
+	  width:1200px;
+	  height:600px;
+	  margin:0px auto;
+	  background-color:black;
+	  border:4px solid red;
+	  }
+	  
+.container{
+	  width:1200px;
+	  height:600px;
+	  margin:0px auto;
+	  background-image:url("colisseu.png");
+      background-size:100%;
+      background-repeat:no-repeat;
+	  border:4px solid red;
+      display:none;
+	  }
+	  
+.voce{
+	  width:100px;
+	  height:100px;
+	  margin:0px auto;
+	  background-image:url("voce.png");
+	  background-size:100%;
+	  background-repeat:no-repeat;
+	  position:relative;
+	  right:500px;
+	  top:440px;
+      display:none;
+}
+
+.voce2{
+	  width:100px;
+	  height:100px;
+	  margin:0px auto;
+	  background-image:url("voceat.png");
+	  background-size:100%;
+	  background-repeat:no-repeat;
+	  position:relative;
+	  right:500px;
+	  top:440px;
+	  animation:movimento 1s;
+	  animation-direction:alternate;
+	  animation-iteration-count:2;
+	  display:none;
+}
+
+.voce3{
+	  width:100px;
+	  height:100px;
+	  margin:0px auto;
+	  background-image:url("voceat.png");
+	  background-size:100%;
+	  background-repeat:no-repeat;
+	  position:relative;
+	  right:500px;
+	  top:440px;
+	  animation:movimento2 1s;
+	  animation-direction:alternate;
+	  animation-iteration-count:2;
+	  display:none;
+}
+
+.voce4{
+	  width:100px;
+	  height:100px;
+	  margin:0px auto;
+	  background-image:url("vocedef.png");
+	  background-size:100%;
+	  background-repeat:no-repeat;
+	  position:relative;
+	  right:500px;
+	  top:440px;
+      display:none;
+}
+
+.fuego{
+	  width:100px;
+	  height:100px;
+	  margin:0px auto;
+	  background-image:url("fuego.png");
+	  background-size:100%;
+      background-repeat:no-repeat;
+	  position:relative;
+	  right:500px;
+	  top:440px;
+      animation:fuego 2s;
+	  display:none;
+
+}
+
+.fuego2{
+	  width:100px;
+	  height:100px;
+	  margin:0px auto;
+	  background-image:url("fuego.png");
+	  background-size:100%;
+      background-repeat:no-repeat;
+	  position:relative;
+	  right:500px;
+	  top:440px;
+      animation:fuego2 1s;
+	  display:none;
+
+}
+
+.fuegoI{
+	  width:100px;
+	  height:100px;
+	  margin:0px auto;
+	  background-image:url("fuego.png");
+	  background-size:100%;
+      background-repeat:no-repeat;
+	  position:relative;
+	  left:500px;
+	  bottom:80px;
+      animation:fuegoI 2s;
+	  display:none;
+
+}
+
+.fuegoI2{
+	  width:100px;
+	  height:100px;
+	  margin:0px auto;
+	  background-image:url("fuego.png");
+	  background-size:100%;
+      background-repeat:no-repeat;
+	  position:relative;
+	  left:500px;
+	  bottom:80px;
+      animation:fuegoI2 1s;
+	  display:none;
+
+}
+
+.oponente{
+	  width:100px;
+	  height:100px;
+	  margin:0px auto;
+	  background-image:url("oponente.png");
+	  background-size:100%;
+	  background-repeat:no-repeat;
+	  position:relative;
+	  left:500px;
+	  bottom:80px;
+      display:none;
+}
+
+.oponente2{
+	  width:100px;
+	  height:100px;
+	  margin:0px auto;
+	  background-image:url("oponenteat.png");
+	  background-size:100%;
+	  background-repeat:no-repeat;
+	  position:relative;
+	  left:500px;
+	  bottom:80px;
+	  animation: movimentoI 1s;
+	  animation-direction:alternate;
+	  animation-iteration-count: 2;
+	  display:none;
+}
+
+.oponente3{
+	  width:100px;
+	  height:100px;
+	  margin:0px auto;
+	  background-image:url("oponenteat.png");
+	  background-size:100%;
+	  background-repeat:no-repeat;
+	  position:relative;
+	  left:500px;
+	  bottom:80px;
+	  animation: movimentoI2 1s;
+	  animation-direction:alternate;
+	  animation-iteration-count: 2;
+	  display:none;
+}
+
+.oponente4{
+	  width:100px;
+	  height:100px;
+	  margin:0px auto;
+	  background-image:url("oponentedef.png");
+	  background-size:100%;
+	  background-repeat:no-repeat;
+	  position:relative;
+	  left:500px;
+	  bottom:80px;
+      display:none;
+}
+
+@keyframes movimentoI{
+  from{left:500px; bottom:80px;}
+  to{left:-400px;    bottom:-250px;}
+}
+@keyframes movimentoI2{
+  from{left:500px; bottom:80px;}
+  to{left:50px;    bottom:-165px;}
+}
+@keyframes movimento{
+  from{right:500px; top:440px;}
+  to{right:-400px;  top:140px;}
+}
+@keyframes movimento2{
+  from{right:500px; top:440px;}
+  to{right:50px;    top:300px;}
+}
+@keyframes fuego{
+  from{right:500px; top:300px;}
+  to{right:-450px;    top:-150px;}
+}
+
+@keyframes fuego2{
+  from{right:500px; top:300px;}
+  to{right:25px;    top:75px;}
+}
+
+@keyframes fuegoI{
+  from{left:500px; bottom:150px;}
+  to{left:-500px;    bottom:-250px;}
+}
+
+@keyframes fuegoI2{
+  from{left:500px; bottom:150px;}
+  to{left:100px;    bottom:-50px;}
+}
+
+.menu{
+   background-color:black;
+   color:white;
+   border:4px solid white;
+   width:800px;
+   height:200px;
+   position:relative;
+   left:350px;
+   top:130px;
+   display:none;
+}
+
+.vitoria{
+   background-color:black;
+   color:white;
+   border:4px solid white;
+   width:800px;
+   height:200px;
+   position:relative;
+   left:350px;
+   top:130px;
+   display:none;
+}
+
+.derrota{
+   background-color:black;
+   color:white;
+   border:4px solid white;
+   width:800px;
+   height:200px;
+   position:relative;
+   left:350px;
+   top:130px;
+   display:none;
+}
+
+.empate{
+   background-color:black;
+   color:white;
+   border:4px solid white;
+   width:800px;
+   height:200px;
+   position:relative;
+   left:350px;
+   top:130px;
+   display:none;
+}
+
+.mensagem{
+   background-color:black;
+   color:white;
+   border:4px solid white;
+   width:800px;
+   height:200px;
+   position:relative;
+   left:350px;
+   top:130px;
+   display:none;
+}
+
+.atacar{
+   background-color:black;
+   color:white;
+   border:4px solid white;
+   width:160px;
+   height:40px;
+   position:relative;
+   left:100px;
+   top:18px;
+   text-align:center;
+   display:none;
+}
+
+.defender{
+   background-color:black;
+   color:white;
+   border:4px solid white;
+   width:160px;
+   height:40px;
+   position:relative;
+   left:320px;
+   top:-22px;
+   text-align:center;
+   display:none;
+}
+
+.fogo{
+   background-color:black;
+   color:white;
+   border:4px solid white;
+   width:160px;
+   height:40px;
+   position:relative;
+   left:560px;
+   top:-62px;
+   text-align:center;
+   display:none;
+}
+
+.start{
+   background-color:black;
+   color:white;
+   border:4px solid white;
+   width:160px;
+   height:40px;
+   position:relative;
+   left:500px;
+   top:50px;
+   text-align:center;
+}
+
+.continuar{
+   background-color:black;
+   color:white;
+   border:4px solid white;
+   width:160px;
+   height:40px;
+   position:relative;
+   left:560px;
+   top:50px;
+   text-align:center;
+   display:none;
+}
+
+p{
+   color:white;
+   padding:0px 20px;
+}
