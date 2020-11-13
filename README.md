@@ -6,7 +6,7 @@
 <p>Atualmente estou pesquisando sobre o Python pois tentarei utiliza-lo para conectar um banco de dados a essa minha aplicação conseguindo assim adicionar fichas de inimigos distintos alem de salvar o progresso do usuario e mais posteriormente ainda conseguir criar um sistema pvp.</p>
 <br>
 <center><p>Nota de atualização 2.1</p></center>
--Adição de sistema de oponentes acrescentando o Goblin e o Ciclope
-<br>-Adição de efeitos sonoros e musica
-<br>-Implementação de botão que retorna para o menu inicial depois que a luta acaba
-<br>-Correção e limpeza do codigo
+-Adição do sistema de oponentes acrescentando o Goblin e o Ciclope.
+<br>-Adição de efeitos sonoros e musica.
+<br>-Implementação de um botão que retorna para o menu inicial depois que a luta acaba.
+<br>-Correção e limpeza do codigo.
