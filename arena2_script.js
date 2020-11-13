@@ -1,3 +1,20 @@
+function play(){
+	document.getElementById('player').play()
+	document.getElementById('music').style.display = 'block';
+	setTimeout(function() {
+	    document.getElementById('music').style.display = 'none';
+    }, 2000);
+}
+function play2(){
+	document.getElementById('player2').play()
+}
+function play3(){
+	document.getElementById('player3').play()
+}
+function play4(){
+	document.getElementById('player4').play()
+}
+
 function continuar(){
 	
 	if(HpAtI>0 && HpAt>0){
@@ -10,6 +27,7 @@ function continuar(){
 	document.getElementById('continuar').style.display = 'none';
 	setTimeout(function() {
 	 document.getElementById('empate').style.display = 'block';
+	 document.getElementById('remenu3').style.display = 'block';
     }, 500);
 	
     } else if(HpAtI<=0){
@@ -17,6 +35,7 @@ function continuar(){
 	document.getElementById('continuar').style.display = 'none';
 	setTimeout(function() {
 	  document.getElementById('vitoria').style.display = 'block';
+	  document.getElementById('remenu1').style.display = 'block';
     }, 500);
 	
 	} else if(HpAt<=0){
@@ -24,43 +43,11 @@ function continuar(){
 	document.getElementById('continuar').style.display = 'none';
 	setTimeout(function() {
 	  document.getElementById('derrota').style.display = 'block';
+	  document.getElementById('remenu2').style.display = 'block';
     }, 500);
 	
 	}
 }
-
-function moverI(){
-    document.getElementById('oponente2').style.display = 'block';
-	document.getElementById('oponente').style.display = 'none';
-	document.getElementById('menu').style.display = 'none';
-	setTimeout(function() {
-      document.getElementById('oponente2').style.display = 'none';
-	  document.getElementById('oponente').style.display = 'block';
-	  document.getElementById('mensagem').style.display = 'block';
-	  document.getElementById('continuar').style.display = 'block';
-   }, 2000);
-                  }
-				  
-function mover(){
-    document.getElementById('voce2').style.display = 'block';
-	document.getElementById('voce').style.display = 'none';
-	document.getElementById('menu').style.display = 'none';
-	setTimeout(function() {
-      document.getElementById('voce2').style.display = 'none';
-	  document.getElementById('voce').style.display = 'block';
-	  document.getElementById('mensagem').style.display = 'block';
-	  document.getElementById('continuar').style.display = 'block';
-   }, 2000);
-                  }
-function fuego(){
-    document.getElementById('fuego').style.display = 'block';
-	document.getElementById('menu').style.display = 'none';
-	setTimeout(function() {
-      document.getElementById('fuego').style.display = 'none';
-	  document.getElementById('mensagem').style.display = 'block';
-	  document.getElementById('continuar').style.display = 'block';
-   }, 2000);
-                  }
 
 function start(){
     document.getElementById('container').style.display = 'block';
@@ -71,7 +58,31 @@ function start(){
     document.getElementById('defender').style.display = 'block';
     document.getElementById('fogo').style.display = 'block';
     document.getElementById('apresentacao').style.display = 'none';
+	oponente();
+	play();
+	HpMax = 1000;
+    HpAt = 1000;
+    ManaMax = 100;
+    ManaAt = 100;
+	DanoAt = 1;
+	DanoMag = 1;
                   }
+				  
+function menu(){
+	document.getElementById('container').style.display = 'none';
+	document.getElementById('voce').style.display = 'none';
+    document.getElementById('oponente').style.display = 'none';
+    document.getElementById('menu').style.display = 'none';
+    document.getElementById('atacar').style.display = 'none';
+    document.getElementById('defender').style.display = 'none';
+    document.getElementById('fogo').style.display = 'none';
+    document.getElementById('apresentacao').style.display = 'block';
+	document.getElementById('empate').style.display = 'none';
+	document.getElementById('vitoria').style.display = 'none';
+	document.getElementById('derrota').style.display = 'none';
+	document.getElementById('remenu').style.display = 'none';
+
+}
 				  
 function atacar() {
 
@@ -81,15 +92,16 @@ do{
 acao = Math.floor(Math.random() * 3) + 1;
 }while(acao==3 && ManaAtI<50);
 if(acao==1){ 
+             play2();
                        Dado = Math.floor(Math.random() * 20) + 1;
                        if(Dado == 1)
                        {
-                         Dano1 = 10;
+                         Dano1 = (10 * DanoAt);
 
                          Dado = Math.floor(Math.random() * 20) + 1;
                          if(Dado == 1)
                          {
-                           Dano2 = 10;
+                           Dano2 = (10 * DanoAtI);
                            HpAtI = HpAtI - (2 * Dano1);
                            HpAt = HpAt - (2 * Dano2);
 						  
@@ -113,7 +125,7 @@ if(acao==1){
 						  }
                          else if(Dado == 20)
                          {
-                           Dano2 = 400;
+                           Dano2 = (400  * DanoAtI);
                            HpAtI = HpAtI - Dano1;
                            HpAt = HpAt - (2 * Dano2);
 						  
@@ -137,7 +149,7 @@ if(acao==1){
 						  }
                           else
                           {
-                            Dano2 = (10 * Dado);
+                            Dano2 = (10 * Dado  * DanoAtI);
                             HpAtI = HpAtI - Dano1;
                             HpAt = HpAt - (2 * Dano2);
 						  
@@ -162,12 +174,12 @@ if(acao==1){
                         }
                         else if (Dado == 20)
                         {
-                          Dano1 = 400;
+                          Dano1 = (400  * DanoAt);
 
                           Dado = Math.floor(Math.random() * 20) + 1;
                           if(Dado == 1)
                           {
-                            Dano2 = 10;
+                            Dano2 = (10 * DanoAtI);
                             HpAtI = HpAtI - (2 * Dano1);
                             HpAt = HpAt - Dano2;
 						  
@@ -191,7 +203,7 @@ if(acao==1){
 						  }
                           else if(Dado == 20)
                           {
-                            Dano2 = 400;
+                            Dano2 = (400 * DanoAtI);
                             HpAtI = HpAtI - Dano1;
                             HpAt = HpAt - Dano2;
 						  
@@ -215,7 +227,7 @@ if(acao==1){
 						  }
                           else
                           {
-                            Dano2 = (10 * Dado);
+                            Dano2 = (10 * Dado * DanoAtI);
                             HpAtI = HpAtI - Dano1;
                             HpAt = HpAt - Dano2;
 						  
@@ -240,12 +252,12 @@ if(acao==1){
                         }
                         else
                         {
-                         Dano1 = (10 * Dado);
+                         Dano1 = (10 * Dado * DanoAt);
 
                          Dado =Math.floor(Math.random() * 20) + 1;
                          if(Dado == 1)
                          {
-                           Dano2 = 10;
+                           Dano2 = (10 * DanoAtI);
                            HpAtI = HpAtI - (2 * Dano1);
                            HpAt = HpAt - Dano2;
 						 
@@ -269,7 +281,7 @@ if(acao==1){
 						 }
                          else if (Dado == 20)
                          {
-                           Dano2 = 400;
+                           Dano2 = (400  * DanoAtI);
                            HpAtI = HpAtI - Dano1;
                            HpAt = HpAt - Dano2;
 						 
@@ -293,9 +305,11 @@ if(acao==1){
 						 }
                          else
                          {
-                           Dano2 = (10 * Dado);
+                           Dano2 = (10 * Dado * DanoAtI);
                            HpAtI = HpAtI - Dano1;
                            HpAt = HpAt - Dano2;
+						   
+						   
 						  
 						      document.getElementById('voce3').style.display = 'block';
 	                          document.getElementById('voce').style.display = 'none';
@@ -318,6 +332,7 @@ if(acao==1){
 }
                 else if(acao==2)
 				{
+					play2();
                        Dado = Math.floor(Math.random() * 20) + 1;
                        Dano1 = Dado;
                        if (Dano1 == 1)
@@ -349,6 +364,7 @@ if(acao==1){
                          else if (DefesaI > Dano1)
                          {
                            Dano2 = DefesaI - 1;
+						   Dano2 = (Dano2 * DanoAtI);
                            HpAt = HpAt - (2 * Dano2);
 						    
 							 document.getElementById('voce2').style.display = 'block';
@@ -397,7 +413,7 @@ if(acao==1){
 									 }
                          else if (DefesaI < Dano1)
                          {
-                          Dano1 = 400 - (10 * DefesaI);
+                          Dano1 = 400 - (10 * DefesaI * DanoAt);
                           HpAtI = HpAtI - Dano1;
 						             
                              document.getElementById('voce2').style.display = 'block';
@@ -426,6 +442,7 @@ if(acao==1){
                            if (DefesaI < Dano1)
                            {
                              Dano1 = (10 * Dano1) - (10 * DefesaI);
+							 Dano1 = Dano1 * DanoAtI;
                              HpAtI = HpAtI - Dano1;
 						                
 							 document.getElementById('voce2').style.display = 'block';
@@ -471,6 +488,7 @@ if(acao==1){
                            else if (DefesaI > Dano1)
                            {
                            Dano2 = (10 * DefesaI) - (10 * Dano1);
+						   Dano2 = Dano2 * DanoAtI;
                            HpAt = HpAt - Dano2;
 						              
                              document.getElementById('voce2').style.display = 'block';
@@ -496,12 +514,14 @@ if(acao==1){
 				        }
                 else if(acao==3 && ManaAtI>=50)
 				        { 
+					play3();
+					play4();
                        ManaAtI = ManaAtI - 50;
-                       Dano2 = 200;
+                       Dano2 = (200 * DanoMagI);
                        Dado = Math.floor(Math.random() * 20) + 1;
                        if (Dado == 1)
                        {
-                         Dano1 = 10;
+                         Dano1 = (10 * DanoAt);
                          HpAtI = HpAtI - Dano1;
                          HpAt = HpAt - (2 * Dano2);
 					              
@@ -523,7 +543,7 @@ if(acao==1){
 								  }
                        else if(Dado == 20)
                        {
-                         Dano1 = 400;
+                         Dano1 = (400 * DanoAt);
                          HpAtI = HpAtI - Dano1;
                          HpAt = HpAt - Dano2;
 					              
@@ -547,7 +567,7 @@ if(acao==1){
 								  }
                        else
                        {
-                         Dano1 = (10 * Dado);
+                         Dano1 = (10 * Dado * DanoAt);
                          HpAtI = HpAtI - Dano1;
                          HpAt = HpAt - Dano2;
 					              
@@ -580,6 +600,7 @@ do{
 acao = Math.floor(Math.random() * 3) + 1;
 }while(acao==3 && ManaAtI<50);
 if(acao==1){ 
+             play2();
 
                        Dado = Math.floor(Math.random() * 20) + 1;
                        Dano2 = Dado;
@@ -608,6 +629,7 @@ if(acao==1){
                          else if (Defesa > Dano2)
                          {
                            Dano1 = (10 * Defesa) - (10 * Dano2);
+						   Dano1 = Dano1 * DanoAt;
                            HpAtI = HpAtI - (2 * Dano1);
 						     document.getElementById('oponente2').style.display = 'block';
 	                         document.getElementById('oponente').style.display = 'none';
@@ -648,7 +670,7 @@ if(acao==1){
                            }
                            else if (Defesa < Dano2)
                            {
-                             Dano2 = 400 - (10 * Defesa);
+                             Dano2 = 400 - (10 * Defesa * DanoAtI);
                              HpAt = HpAt - Dano2;
 							 document.getElementById('oponente2').style.display = 'block';
 	                         document.getElementById('oponente').style.display = 'none';
@@ -672,7 +694,7 @@ if(acao==1){
                            Defesa = Dado;
                            if (Defesa < Dano2)
                            {
-                             Dano2 = (10 * Dano2) - (10 * Defesa);
+                             Dano2 = (10 * Dano2) - (10 * Defesa * DanoAtI);
                              HpAt = HpAt - Dano2;
 							 document.getElementById('oponente2').style.display = 'block';
 	                         document.getElementById('oponente').style.display = 'none';
@@ -709,6 +731,7 @@ if(acao==1){
                            else if (Defesa > Dano2)
                            {
                              Dano1 = (10 * Defesa) - (10 * Dano2);
+							 Dano1 = Dano1 * DanoAt;
                              HpAtI = HpAtI - Dano1;
 							 document.getElementById('oponente2').style.display = 'block';
 	                         document.getElementById('oponente').style.display = 'none';
@@ -729,6 +752,7 @@ if(acao==1){
   
                 }
                 else if(acao==2){ 
+					play2();
 				        document.getElementById('voce4').style.display = 'block';
 	                    document.getElementById('voce').style.display = 'none';
 						document.getElementById('oponente4').style.display = 'block';
@@ -745,8 +769,10 @@ if(acao==1){
                        return "Tanto você quanto seu oponente se defenderam e ninguem se atacou logo você continuou com "+HpAt+" de vida e o seu oponente com "+HpAtI+"";
                 }
                 else if(acao==3){ 
+					play2();
+					play4();
                         ManaAtI = ManaAtI - 50;
-                        Dano2 = 200;
+                        Dano2 = 200 * DanoMagI;
                         HpAt = HpAt - Dano2;
 						document.getElementById('fuegoI').style.display = 'block';
 						document.getElementById('voce4').style.display = 'block';
@@ -776,18 +802,20 @@ if(ManaAt<50){
                return "Você não pode usar esse feitiço pois so tem "+ManaAt+" de mana";
         }else if(ManaAt>=50){
       ManaAt = ManaAt - 50;
-      Dano1 = 200;
+      Dano1 = (200  * DanoMag);
       do{
       acao = Math.floor(Math.random() * 3) + 1;
       }while (acao == 3 && ManaAtI < 50);
 	  
         if(acao==1){ 
+			play3();
+			play4();
                Dado = Math.floor(Math.random() * 20) + 1;
                if(Dado == 1)
                {
-                 Dano2 = 10;
+                 Dano2 = (10 * DanoAtI);
                  HpAt = HpAt - Dano2;
-                 HpAtI = HpAtI - (2*Dano1);
+                 HpAtI = HpAtI - (2 * Dano1);
 				 
 				             document.getElementById('oponente2').style.display = 'block';
 	                         document.getElementById('oponente').style.display = 'none';
@@ -806,7 +834,7 @@ if(ManaAt<50){
                }
                else if (Dado == 20)
                {
-                 Dano2 = 400;
+                 Dano2 = (400 * DanoAtI);
                  HpAt = HpAt - Dano2;
                  HpAtI = HpAtI - Dano1;
 				 
@@ -827,7 +855,7 @@ if(ManaAt<50){
                }
                else
                {
-                 Dano2 = (10 * Dado);
+                 Dano2 = (10 * Dado * DanoAtI);
                  HpAt = HpAt - Dano2;
                  HpAtI = HpAtI - Dano1;
 				 
@@ -848,6 +876,7 @@ if(ManaAt<50){
                }
         }
         else if(acao==2){ 
+			play4();
                HpAtI = HpAtI - Dano1;
 			   
 	                         document.getElementById('menu').style.display = 'none';
@@ -864,8 +893,10 @@ if(ManaAt<50){
                return "Você jogou uma bola de fogo no seu oponente e ele tentou se defender porem foi em vão e com isso você causou "+Dano1+" de dano o deixando com "+HpAtI+" de vida e você agora tem "+ManaAt+" de mana";
         }
         else if(acao==3){ 
+			play4();
+			play4();
                ManaAtI = ManaAtI - 50;
-               Dano2 = 200;
+               Dano2 = 200 * DanoMagI;
                HpAt = HpAt - Dano1;
                HpAtI = HpAtI - Dano2;
 			                 document.getElementById('menu').style.display = 'none';

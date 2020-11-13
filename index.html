@@ -2,31 +2,33 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Arena 2.0</title>
+    <title>Arena 2.1</title>
     <link href="arena2_style.css" rel="stylesheet" type="text/css" />
 	<script>
-	  let HpMax, HpAt, ManaMax, ManaAt, HpMaxI, HpAtI, ManaMaxI, ManaAtI;
-
-      HpMax = 1000;
-      HpAt = 1000;
-      ManaMax = 100;
-      ManaAt = 100;
-
-      HpMaxI = 1000;
-      HpAtI = 1000;
-      ManaMaxI = 100;
-      ManaAtI = 100;
+	  let HpMax, HpAt, ManaMax, ManaAt, DanoAt, DanoMag, HpMaxI, HpAtI, ManaMaxI, ManaAtI, DanoAtI, DanoMagI;
 	</script>
     <script src="arena2_script.js"></script>
   </head>
   <body>
+  
+    <audio src="TES V Skyrim Soundtrack - Around the Fire.mp3" id="player" preload ></audio>
+	<audio src="SOM de Espada e Faca Audio Luta 1.mp3" id="player2" preload ></audio>
+	<audio src="SOM de Espada e Faca Audio Luta 2.mp3" id="player3" preload ></audio>
+	<audio src="Sound Design Efeito Fogo Queimando.mp3" id="player4" preload ></audio>
+
     <div id="apresentacao" class="apresentacao" >
 
     <p>Esse jogo é um rpg em que você ira enfrentar um inimigo em uma arena, para isso você pode escolher em atacar, se defender ou  usar uma bola de fogo. Se você atacar ou se defender você ira rodar um d20 e dependendo do resultado ira acontecer algo, no caso do ataque ira modificar o dano, mas se você tirar 20 você causara dano critico duplicando o dano e se tirar 1 é um desastre critico duplicando o dano que o inimigo for causar em você ja para se defender o resultado do dado da sua defesa ira diminuir no resultado do dado de ataque do oponente e se a sua defesa for maior que o ataque do oponente ele sofrera dano dependendo da diferença como contra-ataque e a bola de fogo ira consumir 50 da sua mana e ira causar 200 de dano independente da sua defesa.</p>
-
+    <p>Agora escolha o seu oponente e depois clique no botão start para iniciar a batalha</p>
+	<p>Oponente: <select id="monstro">
+		   <option>Goblin</option>
+           <option>Soldado</option>
+		   <option>Ciclope</option>
+		   </select></p>
 	  <button id="start" class="start" onclick="start();">Start</button>
 	</div>
     <div id="container" class="container" >
+	  <div id="music" class="music" >♪ TES V Skyrim Soundtrack - Around the Fire</div>
       <div id="voce" class="voce" ></div>
       <div id="voce2" class="voce2" ></div>
 	  <div id="voce3" class="voce3" ></div>
@@ -39,9 +41,9 @@
 	  <div id="fuego2" class="fuego2" ></div>
 	  <div id="fuegoI" class="fuegoI" ></div>
 	  <div id="fuegoI2" class="fuegoI2" ></div>
-	  <div id="vitoria" class="vitoria" ><p>Parabens!!!! Você ganhou!!!!</p></div>
-	  <div id="derrota" class="derrota" ><p>Poxa dessa vez você não conseguiu T.T Mas não se desanime tente denovo.</p></div>
-	  <div id="empate" class="empate" ><p>Opa pelo jeito deu empate, mas não se desanime você quase conseguiu.</p></div>
+	  <div id="vitoria" class="vitoria" ><p>Parabens!!!! Você ganhou!!!!</p><button id="remenu1" class="remenu1" onclick="menu();">Menu</button></div>
+	  <div id="derrota" class="derrota" ><p>Poxa dessa vez você não conseguiu T.T Mas não se desanime tente denovo.</p> <button id="remenu2" class="remenu2" onclick="menu();">Menu</button></div>
+	  <div id="empate" class="empate" ><p>Opa pelo jeito deu empate, mas não se desanime você quase conseguiu.</p> <button id="remenu3" class="remenu3" onclick="menu();">Menu</button></div>
       <div id="menu" class="menu" >
         <p>Oque você faz?</p>
         <button onclick="document.getElementById('demo').innerHTML = atacar();" id="atacar" class="atacar" >Atacar</button>
@@ -53,5 +55,7 @@
       <button onclick="continuar();" id="continuar" class="continuar" >Continuar</button>
       </div>
 	</div>
+	
+	<script src="oponentes.js"></script>
   </body>
 </html>
